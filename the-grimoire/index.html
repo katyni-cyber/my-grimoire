@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Grimoire</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="background">
+    <div class="moon">☾</div>
+    <div class="stars">✦　·　✧　　✦　·　✧　　·　✦</div>
+
+    <main class="grimoire">
+
+      <!-- COVER -->
+      <section class="cover" id="cover">
+        <div class="cover-symbol">☽ ✦ ☾</div>
+
+        <p class="small-title">A PERSONAL</p>
+
+        <h1>GRIMOIRE</h1>
+
+        <div class="ornament">❧ ───────── ❧</div>
+
+        <p class="cover-subtitle">
+          spells • herbs • rituals • notes
+        </p>
+
+        <button class="open-button" onclick="openBook()">
+          OPEN THE GRIMOIRE
+        </button>
+
+        <p class="cover-footer">✦ kept within these pages ✦</p>
+      </section>
+
+
+      <!-- BOOK -->
+      <section class="book" id="book">
+
+        <!-- LEFT PAGE -->
+        <div class="page left-page">
+
+          <div class="page-content" id="leftPageContent">
+            <div class="toc">
+              <p class="chapter-number">I</p>
+              <h2>TABLE OF CONTENTS</h2>
+
+              <div class="ornament small">❧ ───── ❧</div>
+
+              <button onclick="showSection('spells')">
+                <span>01</span> Spells
+              </button>
+
+              <button onclick="showSection('herbs')">
+                <span>02</span> Herbs
+              </button>
+
+              <button onclick="showSection('rituals')">
+                <span>03</span> Rituals
+              </button>
+
+              <button onclick="showSection('notes')">
+                <span>04</span> Notes
+              </button>
+
+              <button class="new-entry-button" onclick="openEntryForm()">
+                + ADD NEW ENTRY
+              </button>
+            </div>
+          </div>
+
+          <div class="page-number" id="leftPageNumber">i</div>
+        </div>
+
+
+        <!-- CENTER -->
+        <div class="book-spine"></div>
+
+
+        <!-- RIGHT PAGE -->
+        <div class="page right-page">
+
+          <div class="page-content" id="rightPageContent">
+
+            <div class="welcome-page">
+              <p class="chapter-number">✦</p>
+
+              <h2>WELCOME</h2>
+
+              <div class="ornament small">❧ ───── ❧</div>
+
+              <p>
+                This is my grimoire is a place to document
+                my journay.
+              </p>
+
+              <p>
+                Add your own entries, write down
+                what you want to remember, and place
+                photographs among the pages.
+              </p>
+
+              <div class="welcome-symbol">☽</div>
+
+              <p class="hint">
+                Choose a section from the table of
+                contents to begin.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="page-number" id="rightPageNumber">1</div>
+        </div>
+
+      </section>
+
+
+      <!-- BOOK CONTROLS -->
+      <div class="book-controls" id="bookControls">
+        <button onclick="previousPage()">← PREVIOUS</button>
+
+        <button onclick="goHome()">TABLE OF CONTENTS</button>
+
+        <button onclick="nextPage()">NEXT →</button>
+      </div>
+
+    </main>
+
+
+    <!-- ENTRY MODAL -->
+    <div class="modal" id="entryModal">
+
+      <div class="modal-box">
+
+        <button class="close-modal" onclick="closeEntryForm()">×</button>
+
+        <h2>ADD TO THE GRIMOIRE</h2>
+
+        <div class="ornament small">❧ ───── ❧</div>
+
+        <label>ENTRY TYPE</label>
+
+        <select id="entryType">
+          <option value="spells">Spell</option>
+          <option value="herbs">Herb</option>
+          <option value="rituals">Ritual</option>
+          <option value="notes">Note</option>
+        </select>
+
+
+        <label>TITLE</label>
+        <input
+          type="text"
+          id="entryTitle"
+          placeholder="Give this entry a name..."
+        >
+
+
+        <label>DATE</label>
+        <input type="date" id="entryDate">
+
+
+        <label>INGREDIENTS</label>
+        <textarea
+          id="entryIngredients"
+          placeholder="Herbs, candles, ingredients, materials..."
+        ></textarea>
+
+
+        <label>INTENTION</label>
+        <textarea
+          id="entryIntention"
+          placeholder="What is the intention of this entry?"
+        ></textarea>
+
+
+        <label>NOTES</label>
+        <textarea
+          id="entryNotes"
+          placeholder="Write your notes here..."
+        ></textarea>
+
+
+        <label>PHOTOS</label>
+
+        <input
+          type="file"
+          id="entryPhotos"
+          accept="image/*"
+          multiple
+        >
+
+        <div id="photoPreview" class="photo-preview"></div>
+
+
+        <button class="save-entry" onclick="saveEntry()">
+          ✦ SAVE TO GRIMOIRE ✦
+        </button>
+
+      </div>
+    </div>
+
+
+    <!-- ENTRY VIEW MODAL -->
+    <div class="modal" id="viewModal">
+
+      <div class="modal-box entry-view">
+
+        <button class="close-modal" onclick="closeView()">×</button>
+
+        <div id="viewContent"></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
